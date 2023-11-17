@@ -6,10 +6,10 @@
 // delle maiuscole e minuscole.
 const removeShortWords = (array, numeroMin) => {
   //for (let i=0;i<array.length;i++){
-  let arrayDiStringhe = array.filter(
+  const arrayDiStringhe = array.filter(
     (elemento) => typeof elemento === "string"
   );
-  let onlyLongWordArray = arrayDiStringhe.filter(
+  const onlyLongWordArray = arrayDiStringhe.filter(
     (elem) => elem.length > numeroMin
   );
   return onlyLongWordArray;

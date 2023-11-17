@@ -2,10 +2,10 @@ const safeParseJSON = (JSONstringa) => {
   try {
     let safeStringa = JSON.parse(JSONstringa);
     console.log(safeStringa);
+    return safeStringa;
   } catch {
     console.log("dai non va");
   }
-  return safeStringa;
 };
 const JsonSample = `{
   "browsers": {
@@ -23,7 +23,7 @@ const JsonSample = `{
     }
   }
 }`;
-safeParseJSON(JsonBooks);
+safeParseJSON(JsonSample);
 //
 //
 //
@@ -46,10 +46,10 @@ console.log(number1, "/", number2);
 try {
   let result = divide(number1, number2);
   if (number2 === 0) {
-    throw error("no");
+    throw new Error("no");
   }
 } catch {
-  console.log("non si può dividere per 0");
+  console.error("non si può dividere per 0");
 }
 //
 //
@@ -63,10 +63,8 @@ try {
 
 const processNumber = (array) => {
   let arrayMoltiplicato = [];
-  let arrayFiltrato = [];
-  const arrayX = array.forEach((elem, i) => {
-    arrayFiltrato = array.filter((elem) => typeof elem === "number");
-  });
+  let arrayFiltrato = array.filter((elem) => typeof elem === "number");
+  // const arrayX = array.forEach((elem, i) => {});
   for (let j = 0; j < arrayFiltrato.length; j++) {
     let numQuadrato = arrayFiltrato[j] * arrayFiltrato[j];
     arrayMoltiplicato.push(numQuadrato);
@@ -88,7 +86,7 @@ const mapWithIndex = (array) => {
   let stringa = "";
   let arrayY = [];
   array.forEach((elem, i) => {
-    stringa = `${elem}[${i}]:[${elem}]`;
+    stringa = `Elemento [${i}]:[${elem}]`;
     arrayY.push(stringa);
   });
   return arrayY;
